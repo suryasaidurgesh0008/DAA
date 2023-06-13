@@ -1,0 +1,35 @@
+#include<stdio.h>
+ 
+int main()
+{
+   int Number, First = 0, Second = 1, Next = 0, sum = 0,count=0;
+   count++;
+   count++;
+   count++;
+   count++;
+   printf("Enter Maximum Number for Fibonacci Series = ");
+   count++;
+   scanf("%d", &Number);
+   count++;
+   printf("First %d Fibonacci Series Numbers:\n", Number);
+   count++;
+   count++;
+   while( First <= Number)
+   {
+   	count++;
+      printf("%d ", First);
+      count++;
+      sum = sum + First;
+      count++;
+      Next = First + Second;
+      count++;
+      First = Second;
+      count++;
+      Second = Next; 
+      count++;
+   }
+   count++;
+   printf("\nThe Sum of Fibonacci Series Numbers = %d\n", sum);
+   count++;
+   printf("\n %d",count);
+}
