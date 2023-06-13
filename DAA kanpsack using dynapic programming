@@ -1,0 +1,104 @@
+# include<stdio.h>
+void knapsack(int n, float weight[], float profit[], float capacity) {
+   float x[20], tp = 0,count=0;
+   count++;
+   int i, j, u;
+   u = capacity;
+   count++;
+   count++;
+   for (i = 0; i < n; i++)
+   count++;
+   count++;
+   count++;
+      x[i] = 0.0;
+      count++;
+      count++;
+   for (i = 0; i < n; i++) {
+   	count++;
+      if (weight[i] > u)
+         break;
+      else {
+         x[i] = 1.0;
+         count++;
+         tp = tp + profit[i];
+         count++;
+         u = u - weight[i];
+         count++;
+      }
+      count++;
+   }
+   count++;
+   if (i < n)
+   count++;
+      x[i] = u / weight[i];
+      count++;
+   tp = tp + (x[i] * profit[i]);
+   count++;
+   printf("\nThe result vector is:- ");
+   count++;
+   for (i = 0; i < n; i++)
+      printf("%f\t", x[i]);
+      count++;
+   printf("\nMaximum profit is:- %f", tp);
+   count++;
+}
+int main() {
+   float weight[20], profit[20], capacity;
+   int num, i, j,count=0;
+   float ratio[20], temp;
+   printf("\nEnter the no. of objects:- ");
+   count++;
+   scanf("%d", &num);
+   count++;
+   printf("\nEnter the wts and profits of each object:- ");
+   count++;
+   for (i = 0; i < num; i++) {
+   	count++;
+      scanf("%f %f", &weight[i], &profit[i]);
+      count++;
+   }
+   count++;
+   printf("\nEnter the capacityacity of knapsack:- ");
+   count++;
+   scanf("%f", &capacity);
+   count++;
+   for (i = 0; i < num; i++) {
+   	count++;
+      ratio[i] = profit[i] / weight[i];
+      count++;
+   }
+   count++;
+   for (i = 0; i < num; i++) {
+   	count++;
+      for (j = i + 1; j < num; j++) {
+      	count++;
+         if (ratio[i] < ratio[j]) {
+         	count++;
+            temp = ratio[j];
+            count++;
+            ratio[j] = ratio[i];
+            count++;
+            ratio[i] = temp;
+            count++;
+            temp = weight[j];
+            count++;
+            weight[j] = weight[i];
+            count++;
+            weight[i] = temp;
+            count++;
+            temp = profit[j];
+            count++;
+            profit[j] = profit[i];
+            count++;
+            profit[i] = temp;
+            count++;
+         }
+         count++;
+      }
+      count++;
+   }
+   count++;
+   printf("%d\n",count);
+   knapsack(num, weight, profit, capacity);
+   return(0);
+}
