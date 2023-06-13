@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int findMthMaximum(int arr[], int n, int m) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] < arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    if (m >= 0 && m < n) {
+        return arr[m];
+    }
+    return -1;
+}
+int findNthMinimum(int arr[], int n, int p) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    if (p >= 0 && p < n) {
+        return arr[p];
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {16, 16, 16, 16, 16};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int M = 0;
+    int N = 1;
+    int MthMax = findMthMaximum(arr, n, M);
+    int NthMin = findNthMinimum(arr, n, N);
+    if (MthMax != -1 && NthMin != -1) {
+        int sum = MthMax + NthMin;
+        int diff = MthMax - NthMin;
+        printf("Sum: %d\n", sum);
+        printf("Difference: %d\n", diff);
+    } else {
+        printf("Illegal input!\n");
+    }
+    return 0;
+}
